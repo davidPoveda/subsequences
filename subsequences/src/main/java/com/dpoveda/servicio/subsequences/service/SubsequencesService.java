@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class SubsequencesService {
 
+    private static final Integer VALOR_MINIMO_COINCIDENCIAS = 0;
+    private static final Integer VALOR_CONSTANTE_POSICION = 1;
+
     /**
      * Calcula la cantidad de subsecuencias de textoABuscar dentro de textoBase.
      *
@@ -19,7 +22,7 @@ public class SubsequencesService {
     public Integer cantidadSubsequences(String textoBase, String textoABuscar) {
         // se adiciona validacion para evitar nullpointerexcepcion
         if (Strings.isBlank(textoBase) || Strings.isBlank(textoABuscar)) {
-            return 0;
+            return VALOR_MINIMO_COINCIDENCIAS;
         }
         int x = textoBase.length();
         int y = textoABuscar.length();
@@ -27,10 +30,10 @@ public class SubsequencesService {
         // se recorren la matriz a partir de los valores ingresados
         for (int i = 1; i <= x; i++) {
             for (int j = 1; j <= y; j++) {
-                if (textoBase.charAt(i - 1) == textoABuscar.charAt(j - 1)) {
-                    arreglo[i][j] = arreglo[i - 1][j - 1] + arreglo[i - 1][j];
+                if (textoBase.charAt(i - VALOR_CONSTANTE_POSICION) == textoABuscar.charAt(j - VALOR_CONSTANTE_POSICION)) {
+                    arreglo[i][j] = arreglo[i - VALOR_CONSTANTE_POSICION][j - VALOR_CONSTANTE_POSICION] + arreglo[i - VALOR_CONSTANTE_POSICION][j];
                 } else {
-                    arreglo[i][j] = arreglo[i - 1][j];
+                    arreglo[i][j] = arreglo[i - VALOR_CONSTANTE_POSICION][j];
                 }
             }
         }
@@ -39,10 +42,10 @@ public class SubsequencesService {
 
     private int[][] inicializarMatriz(int x, int y) {
         // se inicia la matriz con el tamanyo del texto mas 1
-        int[][] arreglo = new int[x + 1][y + 1];
+        int[][] arreglo = new int[x + VALOR_CONSTANTE_POSICION][y + VALOR_CONSTANTE_POSICION];
         // se carga la matriz en la primera posicion con 1
         for (int i = 0; i <= x; i++) {
-            arreglo[i][0] = 1;
+            arreglo[i][0] = VALOR_CONSTANTE_POSICION;
         }
         return arreglo;
     }

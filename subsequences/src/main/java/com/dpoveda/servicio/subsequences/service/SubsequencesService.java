@@ -1,5 +1,6 @@
 package com.dpoveda.servicio.subsequences.service;
 
+import org.apache.logging.log4j.util.Strings;
 import org.springframework.stereotype.Service;
 
 /**
@@ -16,6 +17,10 @@ public class SubsequencesService {
      * @return El numero de subsecuencias encontradas.
      */
     public Integer cantidadSubsequences(String textoBase, String textoABuscar) {
+        // se adiciona validacion para evitar nullpointerexcepcion
+        if (Strings.isBlank(textoBase) || Strings.isBlank(textoABuscar)) {
+            return 0;
+        }
         int x = textoBase.length();
         int y = textoABuscar.length();
         int[][] arreglo = inicializarMatriz(x,y);

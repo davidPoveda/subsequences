@@ -20,7 +20,7 @@ public class SubsequencesController {
     public SubsequencesService subsequencesService;
 
     /**
-     * Punto de entrada para obtener la cantidad de subsecuencias distintas.
+     * Servicio rest tipo get para obtener la cantidad de subsecuencias distintas.
      *
      * @param tipoS La cadena fuente.
      * @param tipoT La subsecuencia a buscar.

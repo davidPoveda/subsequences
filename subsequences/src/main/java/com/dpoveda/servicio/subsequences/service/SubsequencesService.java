@@ -13,7 +13,7 @@ public class SubsequencesService {
     private static final Integer VALOR_CONSTANTE_POSICION = 1;
 
     /**
-     * Calcula la cantidad de subsecuencias de textoABuscar dentro de textoBase.
+     * Calcula la cantidad de subsecuencias del atributo textoABuscar dentro del atributo textoBase.
      *
      * @param textoBase La cadena base en la que se buscaran las subsecuencias.
      * @param textoABuscar La subsecuencia a buscar.
@@ -40,6 +40,13 @@ public class SubsequencesService {
         return arreglo[x][y];
     }
 
+    /**
+     * Inicializa una matriz de enteros con un tamaño basado en los parámetros de entrada.
+     *
+     * @param x el tamaño de la primera dimensión de la matriz
+     * @param y el tamaño de la segunda dimensión de la matriz
+     * @return una matriz de enteros inicializada
+     */
     private int[][] inicializarMatriz(int x, int y) {
         // se inicia la matriz con el tamanyo del texto mas 1
         int[][] arreglo = new int[x + VALOR_CONSTANTE_POSICION][y + VALOR_CONSTANTE_POSICION];

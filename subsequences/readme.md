@@ -63,6 +63,12 @@ Se genero un contenedor de la solución JAVA en Docker, realizando la siguiente 
 2. Se realizo la configuración correspondiente a la versión de JAVA 21, el puerto por donde se va a publicar y la definición de ser un .jar.
 3. Se ejecuto el comando mvn clean package al proyecto.
 4. Se ejecuto en la consola de Git bachs el siguiente comando encargado de crear la imagen correspondiente a la aplicación  docker build -t david-poveda . 
+5. Se realizo exportación de la imagen con el comando "docker save david-poveda > david-poveda.tar"
+6. Se debe realizar importación del archivo "david-poveda.tar" con el comando "docker load < david-poveda.tar"
+
+El proyecto esta construido en dos capas las cuales se muestran en la siguiente imagen
+
+![img_2.png](img_2.png)
 
 Un ejemplo de la forma de usar el servicio es el siguiente:
 

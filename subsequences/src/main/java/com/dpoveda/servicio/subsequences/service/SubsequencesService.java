@@ -24,10 +24,21 @@ public class SubsequencesService {
         if (Strings.isBlank(textoBase) || Strings.isBlank(textoABuscar)) {
             return VALOR_MINIMO_COINCIDENCIAS;
         }
+
+        return calcularCantidadSubsequences(textoBase, textoABuscar);
+    }
+
+    /**
+     * Metodo encargado de realizar el calculo de la cantidad de subsequences
+     * @param textoBase
+     * @param textoABuscar
+     * @return
+     */
+    private int calcularCantidadSubsequences(String textoBase, String textoABuscar) {
         int x = textoBase.length();
         int y = textoABuscar.length();
         int[][] arreglo = inicializarMatriz(x,y);
-        // se recorren la matriz a partir de los valores ingresados
+        // se recorren la matriz a partir de los valores ingresados prueba de escritorio
         for (int i = 1; i <= x; i++) {
             for (int j = 1; j <= y; j++) {
                 if (textoBase.charAt(i - VALOR_CONSTANTE_POSICION) == textoABuscar.charAt(j - VALOR_CONSTANTE_POSICION)) {
@@ -50,7 +61,7 @@ public class SubsequencesService {
     private int[][] inicializarMatriz(int x, int y) {
         // se inicia la matriz con el tamanyo del texto mas 1
         int[][] arreglo = new int[x + VALOR_CONSTANTE_POSICION][y + VALOR_CONSTANTE_POSICION];
-        // se carga la matriz en la primera posicion con 1
+        // se carga la matriz en la primera posicion a nivel de columna con el valor 1
         for (int i = 0; i <= x; i++) {
             arreglo[i][0] = VALOR_CONSTANTE_POSICION;
         }

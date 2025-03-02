@@ -1,4 +1,4 @@
-# subsequencesbd
+# APPGATE
 
 Prueba de código AppGate distinct subsequences
 

@@ -64,6 +64,11 @@ Se genero un contenedor de la solución JAVA en Docker, realizando la siguiente 
 3. Se ejecuto el comando mvn clean package al proyecto.
 4. Se ejecuto en la consola de Git bachs el siguiente comando encargado de crear la imagen correspondiente a la aplicación  docker build -t david-poveda . 
 
+
+El proyecto esta construido en dos capas las cuales se muestran en la siguiente imagen
+
+![img_2.png](img_2.png)
+
 Un ejemplo de la forma de usar el servicio es el siguiente:
 
 http://localhost:8080/subsequences/algoritmo/rabbbit/rabbit

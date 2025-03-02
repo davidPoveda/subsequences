@@ -2,6 +2,8 @@
 
 Prueba de código AppGate distinct subsequences
 
+# Introducción
+
 La prueba está diseñada para que el sistema identifique la cantidad se subsecuencias que existe en una secuencia enviada.
 
 Los atributos iniciales son:
@@ -9,6 +11,8 @@ Los atributos iniciales son:
 Atributo base representado con la letra "s", el cual contendrá la cadena de texto donde se va a realizar la búsqueda de la subsequencia.
 
 Atributo a buscar representado con la letra "t", el cual contendrá la cadena de texto que se va a validar que exista en el atributo "s".
+
+# Contextualización de la solución
 
 A continuación se da una explicación del funcionamiento de la solución propuesta.
 
@@ -54,23 +58,23 @@ El resultado luego de recorrer los dos for es el siguiente
 
 Cuando termina de procesar los dos atributos y de identificar las cantidades de subsecuencias, el valor final queda en la última posición de la matriz, que es la que se retorna.
 
+# Especificación técnica
+
 La aplicación esta creada en spring boot versión 3.4.3, usando la versión de Java 21, se utiliza MAVEN en su versión 3.x.x.
 El desarrollo se realizo con la ayuda del IDE Intellij IDE versión 2024.3.4.
 
-Se genero un contenedor de la solución JAVA en Docker, realizando la siguiente operación:
+Se genero un contenedor de la solución JAVA en Docker, para crear la imagen correspondiente se deben seguir los siguientes pasos:
 
-1. Se creo el archivo Dockerfile a través de la opción de menú New-> Dockerfile del proyecto.
-2. Se realizo la configuración correspondiente a la versión de JAVA 21, el puerto por donde se va a publicar y la definición de ser un .jar.
-3. Se ejecuto el comando mvn clean package al proyecto.
-4. Se ejecuto en la consola de Git bachs el siguiente comando encargado de crear la imagen correspondiente a la aplicación  docker build -t david-poveda . 
-5. Se realizo exportación de la imagen con el comando "docker save david-poveda > david-poveda.tar"
-6. Se debe realizar importación del archivo "david-poveda.tar" con el comando "docker load < david-poveda.tar"
-7. El archivo generado esta adjunto a los fuentes del proyecto.
+1. Ejecutar el comando "mvn clean package" al proyecto.
+2. Ejecutar en la consola de Git bachs el comando "docker build -t david-poveda . " 
+3. Se ejecuta el comando docker run --name david_poveda -p 8080:8080 -d david-poveda
+4. La url de prueba es http://localhost:8080/subsequences/algoritmo/"s"/"t"
 
 El proyecto esta construido en dos capas las cuales se muestran en la siguiente imagen
 
 ![img_2.png](img_2.png)
 
+# Ejemplo y explicación de la URL
 Un ejemplo de la forma de usar el servicio es el siguiente:
 
 http://localhost:8080/subsequences/algoritmo/rabbbit/rabbit
